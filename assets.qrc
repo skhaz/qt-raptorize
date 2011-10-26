@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>raptor.png</file>
+        <file>raptor-sound.ogg</file>
+    </qresource>
+</RCC>
