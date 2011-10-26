@@ -10,6 +10,8 @@
 #include <QEvent>
 #include <Phonon>
 
+#include "keysequence.h"
+
 
 
 class MainWindow : public QWidget
@@ -21,15 +23,13 @@ class MainWindow : public QWidget
     public slots:
         void raptorize();
 
-    protected:
-        virtual void keyReleaseEvent(QKeyEvent *);
-
     private:
         Q_OBJECT
 
         QSequentialAnimationGroup *animation;
         Phonon::MediaObject *mediaObject;
         QLabel *raptor;
+        KeySequence *sequence;
 };
 
 #endif

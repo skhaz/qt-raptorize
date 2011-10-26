@@ -12,15 +12,27 @@ MainWindow::MainWindow(QWidget *parent)
     raptor->hide();
     animation = new QSequentialAnimationGroup();
 
-    //mediaObject = new Phonon::MediaObject(this);
-    //mediaObject->setCurrentSource(Phonon::MediaSource(":/raptor-sound.ogg"));
-    //Phonon::AudioOutput *audioOutput = new Phonon::AudioOutput(Phonon::MusicCategory, this);
-    //Phonon::Path path = Phonon::createPath(mediaObject, audioOutput);
+    KeySequence::KeyList konamiCode;
+    konamiCode << Qt::Key_Up << Qt::Key_Up;
+    konamiCode << Qt::Key_Down << Qt::Key_Down;
+    konamiCode << Qt::Key_Left << Qt::Key_Right;
+    konamiCode << Qt::Key_Left << Qt::Key_Right;
+    konamiCode << Qt::Key_B << Qt::Key_A;
+
+    sequence = new KeySequence(konamiCode, this);
+
+    connect(sequence, SIGNAL(trigger()), this, SLOT(raptorize()));
+    installEventFilter(sequence);
+
+    // mediaObject = new Phonon::MediaObject(this);
+    // mediaObject->setCurrentSource(Phonon::MediaSource(":/raptor-sound.ogg"));
+    // Phonon::AudioOutput *audioOutput = new Phonon::AudioOutput(Phonon::MusicCategory, this);
+    // Phonon::Path path = Phonon::createPath(mediaObject, audioOutput);
 }
 
 MainWindow::~MainWindow()
 {
-    //delete mediaObject;
+    // delete mediaObject;
     delete animation;
 }
 
@@ -45,11 +57,3 @@ void MainWindow::raptorize()
 
     raptor->show();
 }
-
-void MainWindow::keyReleaseEvent(QKeyEvent *event)
-{
-    raptorize();
-
-    QWidget::keyReleaseEvent(event);
-}
-
