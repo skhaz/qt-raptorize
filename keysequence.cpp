@@ -1,6 +1,5 @@
 #include "keysequence.h"
 
-#include <QtDebug>
 
 
 KeySequence::KeySequence(QObject *parent)
@@ -24,7 +23,6 @@ bool KeySequence::eventFilter(QObject *target, QEvent *event)
 {
     if (event->type() == QEvent::KeyPress) {
         QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
-        qDebug() << _pointer << qPrintable(_sequence[_pointer]) << qPrintable(keyEvent->key());
 
         if (_sequence[_pointer++] == keyEvent->key()) {
             if (_pointer >= _sequence.size()) {

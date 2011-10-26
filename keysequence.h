@@ -33,3 +33,4 @@ class KeySequence : public QObject
 };
 
 #endif
+

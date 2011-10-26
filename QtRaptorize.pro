@@ -13,4 +13,3 @@ HEADERS  += mainwindow.h \
 
 RESOURCES += assets.qrc
 
-
