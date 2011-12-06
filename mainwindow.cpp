@@ -38,20 +38,28 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::raptorize()
-{
+{   
     QPropertyAnimation *anim1 = new QPropertyAnimation(raptor, "pos");
     anim1->setEasingCurve(QEasingCurve::InOutElastic);
     anim1->setDuration(2000);
     anim1->setStartValue(QPoint(width()- raptor->width(), height()));
-    anim1->setEndValue(QPoint(width()- raptor->width(), (height() - raptor->height()) + 100));
+    anim1->setEndValue(QPoint(width()- raptor->width(), (height() - raptor->height()) + 350));
     animation->addAnimation(anim1);
 
     QPropertyAnimation *anim2 = new QPropertyAnimation(raptor, "pos");
     anim2->setEasingCurve(QEasingCurve::Linear);
     anim2->setDuration(1000);
-    anim2->setStartValue(QPoint(width() - raptor->width(), (height() - raptor->height()) + 100));
-    anim2->setEndValue(QPoint(width() * -1, (height() - raptor->height()) + 100));
+    anim2->setStartValue(QPoint(width() - raptor->width(), (height() - raptor->height()) + 350));
+    anim2->setEndValue(QPoint(width() * -1, (height() - raptor->height()) + 350));
     animation->addAnimation(anim2);
+
+    QPropertyAnimation *anim4 = new QPropertyAnimation(raptor, "pos");
+    anim4->setEasingCurve(QEasingCurve::Linear);
+    anim4->setDuration(1000);
+    anim4->setStartValue(QPoint(width() * -1, (height() - raptor->height())));
+    anim4->setEndValue(QPoint((width() / 2) - (raptor->width() / 2), (height() - raptor->height())));
+    animation->addAnimation(anim4);
+
 
     animation->start();
     // mediaObject->play();

@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>raptor.png</file>
         <file>raptor-sound.ogg</file>
+        <file>chuck_testa.png</file>
     </qresource>
 </RCC>
