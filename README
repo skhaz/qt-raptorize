@@ -1,5 +1,8 @@
-
 This small project is a clone of jQuery plugin named Raptorize[1] in Qt, released under Beerware license :)
+
+Video: http://youtu.be/lltaLKjV1RY
+
+TODO: Rewrite using QGraphicsView
 
 1 - http://www.zurb.com/playground/jquery-raptorize?timed_launch=true
 
